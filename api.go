@@ -29,6 +29,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"path"
 	"strconv"
 )
 
@@ -83,7 +84,7 @@ func New(uri string) (a *Api, err error) {
 // in other cases it will just store the parameters in the URL.
 func (a *Api) Request(method Method, resource string, args url.Values) (req *http.Request, err error) {
 	u := *a.BaseURI
-	u.Path = resource
+	u.Path = path.Join(u.Path, resource)
 
 	switch method {
 	case GET, HEAD, PUT, DELETE, PATCH:

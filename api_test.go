@@ -10,7 +10,7 @@ import (
 )
 
 func TestRequestGet(t *testing.T) {
-	a, err := New("http://example.com")
+	a, err := New("http://example.com/api/v2")
 	if !assert.NoError(t, err) {
 		return
 	}
@@ -19,7 +19,7 @@ func TestRequestGet(t *testing.T) {
 	args.Set("price", "200")
 	req, err := a.Request(GET, "/categories/1", args)
 	assert.NoError(t, err)
-	expURL := "http://example.com/categories/1?filter=1&price=200"
+	expURL := "http://example.com/api/v2/categories/1?filter=1&price=200"
 	assert.Equal(t, expURL, req.URL.String())
 }
 
