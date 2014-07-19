@@ -15,8 +15,8 @@ func TestRequestGet(t *testing.T) {
 		return
 	}
 	args := url.Values{}
-	args.Add("filter", "1")
-	args.Add("price", "200")
+	args.Set("filter", "1")
+	args.Set("price", "200")
 	req, err := a.Request(GET, "/categories/1", args)
 	assert.NoError(t, err)
 	expURL := "http://example.com/categories/1?filter=1&price=200"
@@ -29,10 +29,10 @@ func TestRequestPost(t *testing.T) {
 		return
 	}
 	args := url.Values{}
-	args.Add("filter", "1")
-	args.Add("price", "200")
+	args.Set("filter", "1")
+	args.Set("price", "200")
 	a.Header = http.Header{}
-	a.Header.Add("foo", "bar")
+	a.Header.Set("foo", "bar")
 	req, err := a.Request(POST, "/categories/1", args)
 	assert.NoError(t, err)
 	defer req.Body.Close()
@@ -50,7 +50,7 @@ func TestRequestHeaders(t *testing.T) {
 	}
 	args := url.Values{}
 	a.Header = http.Header{}
-	a.Header.Add("foo", "bar")
+	a.Header.Set("foo", "bar")
 	req, err := a.Request(GET, "/categories/1", args)
 	assert.NoError(t, err)
 	expHeader := http.Header{

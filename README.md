@@ -11,8 +11,8 @@ go get github.com/xlab/api
 ```go
 svc, _ := api.New("http://example.com")
 args := url.Values{}
-args.Add("filter", "1")
-args.Add("price", "200")
+args.Set("filter", "1")
+args.Set("price", "200")
 req, _ := svc.Request(api.POST, "/categories/1", args)
 
 // req.URL is now http://example.com/categories/1
