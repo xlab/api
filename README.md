@@ -17,8 +17,12 @@ req, _ := svc.Request(api.POST, "/categories/1", args)
 
 // req.URL is now http://example.com/categories/1
 // req.Body is now filter=1&price=200
-// req.Header is now has Content-Type: application/x-www-form-urlencoded
+// req.Header now has Content-Type: application/x-www-form-urlencoded
 
 var cli http.Client
 resp, err := cli.Do(req)
 ```
+
+#### License
+
+MIT
