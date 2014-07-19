@@ -79,6 +79,15 @@ func New(uri string) (a *Api, err error) {
 	return
 }
 
+// MustNew is like New, but panics if any error has occured.
+func MustNew(uri string) *Api {
+	a, err := New(uri)
+	if err != nil {
+		panic(err)
+	}
+	return a
+}
+
 // Request creates an http request instance properly initialized with the given parameters.
 // In a special case for the POST method it will create a body buffer,
 // in other cases it will just store the parameters in the URL.
