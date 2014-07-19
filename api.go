@@ -1,4 +1,4 @@
-// Package api is a helper that allows to create Go bindings to REST APIs in a simple and intuitive way.
+// Package api is a helper that simplifies the process of REST APIs bindings creation in Go.
 // Rather than composing URLs and HTTP requests by hand, one can use the api.Request method in order to
 // automatically create such a request. The use case may be as following:
 //   svc, _ := api.New("http://example.com")
