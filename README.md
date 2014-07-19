@@ -15,9 +15,9 @@ args.Add("filter", "1")
 args.Add("price", "200")
 req, _ := svc.Request(api.POST, "/categories/1", args)
 
-// URL is now http://example.com/categories/1
-// Body is now filter=1&price=200
-// Header is now has Content-Type: application/x-www-form-urlencoded
+// req.URL is now http://example.com/categories/1
+// req.Body is now filter=1&price=200
+// req.Header is now has Content-Type: application/x-www-form-urlencoded
 
 var cli http.Client
 resp, err := cli.Do(req)
