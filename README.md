@@ -8,7 +8,7 @@ go get github.com/xlab/api
 ```
 
 #### Use case:
-```golang
+```go
 svc, _ := api.New("http://example.com")
 args := url.Values{}
 args.Add("filter", "1")
