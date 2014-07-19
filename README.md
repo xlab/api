@@ -1,6 +1,6 @@
 API
 ---
-[![GoDoc](https:godoc.org/github.com/xlab/api?status.svg)](https:godoc.org/github.com/xlab/api)
+[![GoDoc](https://godoc.org/github.com/xlab/api?status.svg)](https://godoc.org/github.com/xlab/api)
 
 #### Installation:
 ```
