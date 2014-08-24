@@ -124,5 +124,11 @@ func (a *Api) Request(method Method, resource string, args url.Values) (req *htt
 func (a *Api) RequestBytes(method Method, resource string, data []byte) (req *http.Request, err error) {
 	u := *a.BaseURI
 	u.Path = path.Join(u.Path, resource)
-	return http.NewRequest(method.String(), u.String(), bytes.NewReader(data))
+	if req, err = http.NewRequest(method.String(), u.String(), bytes.NewReader(data)); err != nil {
+		return
+	}
+	for k := range a.Header {
+		req.Header.Add(k, a.Header.Get(k))
+	}
+	return
 }
