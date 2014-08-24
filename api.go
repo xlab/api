@@ -120,3 +120,9 @@ func (a *Api) Request(method Method, resource string, args url.Values) (req *htt
 
 	return req, nil
 }
+
+func (a *Api) RequestBytes(method Method, resource string, data []byte) (req *http.Request, err error) {
+	u := *a.BaseURI
+	u.Path = path.Join(u.Path, resource)
+	return http.NewRequest(method.String(), u.String(), bytes.NewReader(data))
+}
